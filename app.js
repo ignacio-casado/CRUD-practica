@@ -1,13 +1,13 @@
 const express = require('express');
-const router = require('./routes/routes')
 const bodyParser = require('body-parser')
-
 const app = express();
 
-//app use
+
+// body-parser
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(express.static('public'))
-app.use('/', router)
+//app use
+const routes = require('./routes/routes')
+app.use('/', routes)
 
 const PORT = process.env.PORT || 3000;
 

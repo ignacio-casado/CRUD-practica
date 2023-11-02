@@ -2,6 +2,19 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../db');
 
+
+router.use(express.static('public'))
+
+
+router.get('/', (req,res)=>{
+    res.send('<h1>Bienvenidos</h1')
+})
+
+router.get('/agregar', (req, res) => {
+    res.sendFile(__dirname + '/../public/index.html');
+});
+  
+
 router.get('/usuarios', (req, res) => {
     connection.query('SELECT * FROM Usuarios', (error, results) => {
         if (error) throw error;
@@ -57,6 +70,7 @@ router.delete('/eliminar/:id', (req, res) => {
         }
     });
 });
+
 
 
 module.exports = router;
