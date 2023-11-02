@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../db');
+const connection = require('../db/db')
 
 
 router.use(express.static('public'))
 
+router.get('/', (req, res) => {
 
-
-router.get('/agregar', (req, res) => {
     res.sendFile(__dirname + '/../public/index.html');
 });
   
@@ -50,6 +49,7 @@ router.post('/agregar', (req, res) => {
             return res.status(500).send('Error al procesar la solicitud.');
         }
         res.send('Datos agregados exitosamente.');
+        
     });
 });
 
