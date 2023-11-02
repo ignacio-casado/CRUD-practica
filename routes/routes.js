@@ -6,9 +6,6 @@ const connection = require('../db');
 router.use(express.static('public'))
 
 
-router.get('/', (req,res)=>{
-    res.send('<h1>Bienvenidos</h1')
-})
 
 router.get('/agregar', (req, res) => {
     res.sendFile(__dirname + '/../public/index.html');
